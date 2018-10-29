@@ -13,6 +13,9 @@ class S(BaseHTTPRequestHandler):
         self.end_headers()
 
     def do_GET(self):
+        #Choose q1 to be a global variable
+        #Any value set in the method will be avialbel outside method as well
+        global q1
         self._set_headers()
         # Assuming request made is http://localhost:8080/getAccountDetails?accountno=nnnnn
         # Use self.path to get the request context or node /getAccountDetails?accountno=nnnnn
@@ -42,6 +45,8 @@ def run(server_class=HTTPServer, handler_class=S, port=80):
     print 'Starting httpd...'
     httpd.serve_forever()
 
+#Declare q1
+q1 ="UserName"
 if __name__ == "__main__":
     from sys import argv
 
